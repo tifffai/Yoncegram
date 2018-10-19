@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: yoncegram_production
-  username: yoncegram
-  password: <%= ENV['YONCEGRAM_DATABASE_PASSWORD'] %>
+  url: <%=  ENV['database_url'] %>
+  # database: yoncegram_production
+  # username: yoncegram
+  # password: <%= ENV['YONCEGRAM_DATABASE_PASSWORD'] %>
