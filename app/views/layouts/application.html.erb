@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yoncégram</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? == false%>
+      <h1>Yoncégram</h1>
+      <br>
+    <% end %>
+    
+    <nav>
+      <% if user_signed_in? %>
+      <ul>
+        <li><%= link_to 'HOME', root_path %></li>
+        <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %> </li>
+      <% end %>
+      </ul>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

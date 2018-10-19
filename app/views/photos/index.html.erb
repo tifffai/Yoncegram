@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Yoncégram</h1>
+<br>
+<%= link_to 'ADD NEW PHOTO', new_photo_path %>
+<br>
+<br>
+  <tbody>
+
+  <% @photos.each do |photo| %>
+      <br>
+      <<%= photo.title %></td>
+      <img src="<%= photo.url %>" width="300px">
+      <p><em> posted by <strong><%= photo.user.email %> </strong></em></p>
+        <td><%= link_to 'Show', photo %></td>
+      <% if photo.user.email == current_user.email %>
+        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+        <br>
+      <% end %>
+      <hr>
+  <% end %>
+
+
+

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @photo.title %></h1>
+  
+</p>
+
+<p>
+  <img src="<%= @photo.url %>" width="450px">
+</p>
+
+<p>
+  <strong>Posted by:</strong>
+  <%= @photo.user.email %>
+</p>
+
+<%= form_for Comment.new, url: '/comments' do |f| %>
+  <%= f.text_area :message %> 
+  <%= f.hidden_field :photo_id, value: @photo.id %>
+  <br>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<br>
+<br>
+<hr>
+<p>
+  <strong>Comments</strong>
+  <% @photo.comment.each do |comment| %>
+    <div>
+      <%= comment.message %>
+      <p><em> posted by <strong><%= comment.user.email %> </strong></em></p>
+      <hr>
+    </div>
+  <% end %>
+
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
