@@ -29,20 +29,35 @@ body h1 {
     font-size: 5em;
 }
 
-body a:link {
+body h4 {
+    font-family: Snell Roundhand, cursive;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 100;
+    color: goldenrod
+}
+
+body a, a:visited, a:link, a:active {
     text-decoration: underline;
+    text-transform: uppercase;
 }
 
 body a:hover {
-    background-color: #111;
+    background-color: goldenrod;
     text-decoration: none;
-    color: white;
-    display: block;
+    text-transform: uppercase;
+    color: #111;
+    display: inline;
 }
 
-/* td {
-    display: block;
-} */
+.photo_links a:hover {
+    background-color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    display: inline;
+}
 
 nav ul {
     list-style-type: none;
@@ -50,16 +65,18 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    height: 45px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 nav li {
-    float: right;
+    align-self: center;
+    /* float: right; */
 }
 
 nav li a, a:visited, a:link, a:active {
-    display: block;
     color: white;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }

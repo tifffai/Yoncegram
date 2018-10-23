@@ -9,18 +9,22 @@
 
   <% @photos.each do |photo| %>
       <br>
-      <%= photo.title.upcase %>
+      <h4><%= photo.title %></h4>
       <p><%= image_tag photo.image, width: '300' %> </p>
       <p><em> posted by <strong><%= photo.user.email %> </strong></em></p>
-        <td><%= link_to 'Show', photo %></td>
+      <div class="photo_links">
+        <%= link_to 'Show', photo %>
       <% if photo.user.email == current_user.email %>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Edit', edit_photo_path(photo) %>
+        <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
         <br>
         <br>
+
       <% end %>
       <hr>
   <% end %>
+  </tbody>
 
 
 

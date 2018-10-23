@@ -35,6 +35,7 @@
   <% end %>
 
 </p>
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<% if photo.user.email == current_user.email %>
+  <%= link_to 'Edit', edit_photo_path(@photo) %> |
+<% end %>
 <%= link_to 'Back', photos_path %>
